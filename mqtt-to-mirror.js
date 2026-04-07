@@ -3,7 +3,7 @@ const { exec } = require('child_process');
 
 console.log('Avvio script MQTT...');
 
-const client = mqtt.connect('mqtt://192.168.1.32:1883', {
+const client = mqtt.connect('mqtt://192.168.1.46:1883', {
     username: 'mqtt',
     password: 'kkpo2981'
 });
@@ -45,7 +45,7 @@ function screenOff() {
 }
 
 client.on('connect', () => {
-    console.log('✓ Connesso a MQTT broker 192.168.1.32:1883');
+    console.log('✓ Connesso a MQTT broker 192.168.1.45:1883');
     client.subscribe('zigbee2mqtt/sensoremovimento', (err) => {
         if (err) {
             console.error('✗ Errore sottoscrizione:', err);
