@@ -1,0 +1,62 @@
+/* Evita sovrapposizioni: i moduli lunghi restano nella loro area con scroll */
+
+.region.top.left .module,
+.region.bottom.left .module,
+.region.middle.center .module {
+  margin-bottom: 14px;
+}
+
+.region.top.left .module.MMM-Bring .module-content {
+  max-height: 42vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.region.bottom.left .module.calendar .module-content {
+  max-height: 45vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.region.middle.center .module.MMM-MenuScuola .module-content {
+  max-height: 50vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: min(58vw, 980px);
+  max-width: 100%;
+}
+
+.region.top.left .module.MMM-Bring .module-content,
+.region.middle.center .module.MMM-MenuScuola .module-content {
+  min-width: 0;
+}
+
+@media (max-width: 1280px) {
+  .region.top.left .module.MMM-Bring .module-content,
+  .region.middle.center .module.MMM-MenuScuola .module-content {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* Taratura monitor verticale 16:10/16:9 portrait */
+@media (orientation: portrait) {
+  .region.top.left .module.MMM-Bring .module-content,
+  .region.bottom.left .module.calendar .module-content,
+  .region.middle.center .module.MMM-MenuScuola .module-content {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .region.top.left .module.MMM-Bring .module-content {
+    max-height: 34vh;
+  }
+
+  .region.bottom.left .module.calendar .module-content {
+    max-height: 36vh;
+  }
+
+  .region.middle.center .module.MMM-MenuScuola .module-content {
+    max-height: 44vh;
+  }
+}
