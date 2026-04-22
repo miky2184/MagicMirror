@@ -58,9 +58,10 @@ Temporary Items
 /modules/*
 
 # Ignore users config file but keep the samples.
-config
-!config/config.js.sample
-!config/custom.css.sample
+#config
+#!config/config.js.sample
+#!config/custom.css.sample
+config/magicmirror.env
 
 # Vim
 ## swap
