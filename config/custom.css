@@ -1,0 +1,25 @@
+/* Evita sovrapposizioni: i moduli lunghi restano nella loro area con scroll */
+
+.region.top.left .module.calendar .module-content {
+  max-height: 42vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.region.bottom.left .module.MMM-MenuScuola .module-content {
+  max-width: 44vw;
+}
+
+.region.bottom.right .module.MMM-Bring .module-content {
+  max-width: 44vw;
+  max-height: 55vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+@media (max-width: 1280px) {
+  .region.bottom.left .module.MMM-MenuScuola .module-content,
+  .region.bottom.right .module.MMM-Bring .module-content {
+    max-width: 40vw;
+  }
+}
