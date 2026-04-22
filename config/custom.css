@@ -1,25 +1,39 @@
-/* Evita sovrapposizioni: i moduli lunghi restano nella loro area con scroll */
+/* Layout guardrail: keep long modules inside their own region with scroll. */
 
-.region.top.left .module.calendar .module-content {
-  max-height: 42vh;
+.region .module {
+  margin-bottom: 14px;
+}
+
+.region.top.left .module.MMM-Bring .module-content,
+.region.middle.center .module.MMM-MenuScuola .module-content,
+.region.bottom.left .module.calendar .module-content {
+  min-width: 0;
+  max-width: 100%;
   overflow-y: auto;
   overflow-x: hidden;
 }
 
-.region.bottom.left .module.MMM-MenuScuola .module-content {
-  max-width: 44vw;
+.region.top.left .module.MMM-Bring .module-content {
+  max-height: 34vh;
 }
 
-.region.bottom.right .module.MMM-Bring .module-content {
-  max-width: 44vw;
-  max-height: 55vh;
-  overflow-y: auto;
-  overflow-x: hidden;
+.region.middle.center .module.MMM-MenuScuola .module-content {
+  width: min(58vw, 980px);
+  max-height: 32vh;
 }
 
-@media (max-width: 1280px) {
-  .region.bottom.left .module.MMM-MenuScuola .module-content,
-  .region.bottom.right .module.MMM-Bring .module-content {
-    max-width: 40vw;
+.region.bottom.left .module.calendar .module-content {
+  max-height: 30vh;
+}
+
+/* Extra tightening for vertical screen to avoid section overlap. */
+@media (orientation: portrait) {
+  .region.middle.center .module.MMM-MenuScuola .module-content {
+    width: min(56vw, 760px);
+    max-height: 28vh;
+  }
+
+  .region.bottom.left .module.calendar .module-content {
+    max-height: 26vh;
   }
 }

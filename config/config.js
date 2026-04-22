@@ -53,7 +53,7 @@ let config = {
 		{
 			module: "calendar",
 			header: "I Nostri Impegni",
-			position: "lower_third",
+			position: "bottom_left",
 			config: {
 				calendars: [
 					{
@@ -67,7 +67,7 @@ let config = {
 						color: "#0068A8"
 					}
 				],
-				maximumEntries: 8,
+				maximumEntries: 6,
 				maximumNumberOfDays: 7,
 				displaySymbol: true,
 				defaultSymbol: "calendar",
