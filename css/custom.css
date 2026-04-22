@@ -1,39 +1,71 @@
-/* Layout guardrail: keep long modules inside their own region with scroll. */
+/* Evita sovrapposizioni: i moduli lunghi restano nella loro area con scroll */
 
-.region .module {
+.region.top.left .module,
+.region.bottom.left .module,
+.region.middle.center .module {
   margin-bottom: 14px;
 }
 
-.region.top.left .module.MMM-Bring .module-content,
-.region.middle.center .module.MMM-MenuScuola .module-content,
-.region.bottom.left .module.calendar .module-content {
-  min-width: 0;
-  max-width: 100%;
+.region.top.left .module.MMM-Bring .module-content {
+  max-height: 42vh;
   overflow-y: auto;
   overflow-x: hidden;
 }
 
-.region.top.left .module.MMM-Bring .module-content {
-  max-height: 34vh;
+.region.bottom.left .module.calendar .module-content {
+  max-height: 45vh;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .region.middle.center .module.MMM-MenuScuola .module-content {
-  width: min(58vw, 980px);
-  max-height: 32vh;
+  max-height: 50vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: min(64vw, 1080px);
+  max-width: 100%;
 }
 
-.region.bottom.left .module.calendar .module-content {
-  max-height: 30vh;
+.region.top.left .module.MMM-Bring .module-content,
+.region.middle.center .module.MMM-MenuScuola .module-content {
+  min-width: 0;
 }
 
-/* Extra tightening for vertical screen to avoid section overlap. */
-@media (orientation: portrait) {
+@media (max-width: 1280px) {
+  .region.top.left .module.MMM-Bring .module-content,
   .region.middle.center .module.MMM-MenuScuola .module-content {
-    width: min(56vw, 760px);
-    max-height: 28vh;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* Taratura monitor verticale 16:10/16:9 portrait */
+@media (orientation: portrait) {
+  .region.top.left .module.MMM-Bring .module-content,
+  .region.bottom.left .module.calendar .module-content,
+  .region.middle.center .module.MMM-MenuScuola .module-content {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .region.top.left .module.MMM-Bring .module-content {
+    max-height: 34vh;
   }
 
   .region.bottom.left .module.calendar .module-content {
-    max-height: 26vh;
+    max-height: 36vh;
+  }
+
+  .region.middle.center .module.MMM-MenuScuola .module-content {
+    max-height: 44vh;
   }
 }
+
+/* Fallback se top_left diventa troppo affollato:
+   sposta MMM-Bring in third_left dentro config.js e usa questo blocco.
+.region.third.left .module.MMM-Bring .module-content {
+  max-height: 38vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+*/
